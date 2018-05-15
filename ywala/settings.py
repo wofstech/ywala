@@ -172,7 +172,7 @@ AWS_S3_OBJECT_PARAMETERS = {
 AWS_LOCATION = 'static'
 
 
-DEFAULT_FILE_STORAGE = 'pbc.storage_backends.MediaStorage'
+DEFAULT_FILE_STORAGE = 'ywala.storage_backends.MediaStorage'
 
 MEDIA_URL = '//%s.s3.amazonaws.com/media/' % AWS_STORAGE_BUCKET_NAME
 MEDIA_ROOT = MEDIA_URL
