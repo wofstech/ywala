@@ -39,6 +39,7 @@ INSTALLED_APPS = [
     'bootstrap3',
     'dj_pagination',
     'postman',
+    'storages',
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
@@ -142,8 +143,6 @@ LOGOUT_URL = reverse_lazy('logout')
 
 EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'
 
-MEDIA_URL = '/media/' 
-MEDIA_ROOT = os.path.join(BASE_DIR, 'ywala/media/')
 
 POSTMAN_AUTO_MODERATE_AS = True
 
@@ -159,3 +158,21 @@ STATIC_URL = '/static/'
 # Simplified static file serving.
 # https://warehouse.python.org/project/whitenoise/
 STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
+
+
+AWS_ACCESS_KEY_ID = 'AKIAIUZBQLVR3K7US3FA'
+AWS_SECRET_ACCESS_KEY = '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'
+AWS_STORAGE_BUCKET_NAME = 'pbc-media'
+AWS_S3_CUSTOM_DOMAIN = '%s.s3.amazonaws.com' % AWS_STORAGE_BUCKET_NAME
+
+AWS_S3_OBJECT_PARAMETERS = {
+    'CacheControl': 'max-age=86400',
+}
+
+AWS_LOCATION = 'static'
+
+
+DEFAULT_FILE_STORAGE = 'pbc.storage_backends.MediaStorage'
+
+MEDIA_URL = '//%s.s3.amazonaws.com/media/' % AWS_STORAGE_BUCKET_NAME
+MEDIA_ROOT = MEDIA_URL

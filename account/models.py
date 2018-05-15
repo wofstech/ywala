@@ -5,7 +5,7 @@ class Profile(models.Model):
     user = models.OneToOneField(settings.AUTH_USER_MODEL, on_delete=models.PROTECT)    
     date_of_birth = models.DateField(blank=True, null=True)
     nickname = models.CharField(max_length=200, default='gabby')
-    image = models.ImageField(upload_to='profile_image', blank=True)
+    image = models.ImageField()
 
     def __str__(self):        
         return 'Profile for user {}'.format(self.user.username)
