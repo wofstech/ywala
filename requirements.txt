@@ -7,3 +7,5 @@ whitenoise==3.3.1
 dj_pagination
 Pillow
 haystack
+boto3
+django-storages
