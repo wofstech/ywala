@@ -36,6 +36,7 @@ ALLOWED_HOSTS = ['shrouded-island-40221.herokuapp.com', '127.0.0.1']
 INSTALLED_APPS = [
     'account',
     'houses',
+    'initial',
     'bootstrap3',
     'bootstrapform',
     'dj_pagination',

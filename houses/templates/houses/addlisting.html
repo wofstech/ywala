@@ -33,11 +33,13 @@
                     <div 'collapse navbar-collapse'  id='MyNavBar'> 
                         <ul class='nav navbar-nav navbar-right' style="font-size: 20px;">
                             <li>
-                                <a href='{% url "dashboard" %}'>
-                                        {% if user.profile.image  %} 
-                                        <img src='{{ user.profile.image.url }}'  width='50px' height="50px" style='border-radius:50%'>
-                                        {% endif %}
-                                </a>
+                                <a href='#'>
+                                    {% if user.profile.image  %} 
+                                    <img src='{{ user.profile.image.url }}'  width='50px' height="50px" style='border-radius:50%'>
+                                    {% else %}
+                                    <img src='{% static "account/avatar2.jpg" %}' width='50px' height="50px" style='border-radius:50%'>
+                                    {% endif %}
+                            </a>
                             </li>
                             <li>
                                 <a href='{% url "dashboard" %}' class='dash' style='font-size: 15px'>
@@ -81,7 +83,7 @@
                         {% endif %}       
                     </div>
             <br>
-            <h2 style='text-align:center'>Create New Listing</h2>
+            <h2 style="font-family: 'Tangerine', serif; font-size: 58px; color:#000000; text-align:center;">Create New Listing</h2>
             <form method="POST" class="post-form" enctype="multipart/form-data" >{% csrf_token %}
                 {% load bootstrap %}
                 {{ form|bootstrap}}    
