@@ -9,6 +9,7 @@ from django.views import generic
 from . models import Myhouses
 from django.contrib.auth.models import User
 from django.core.paginator import Paginator, EmptyPage, PageNotAnInteger
+from django.contrib import messages
 
 @login_required
 def addlisting(request):    
@@ -18,6 +19,7 @@ def addlisting(request):
             Houses = form.save(commit=False)
             Houses.author=request.user
             Houses.save()
+            messages.success(request, 'Listing Created Succesfully successfully')
             return redirect('addlisting')           
     else:        
         form = MyHouseEditForm()  
@@ -33,6 +35,7 @@ def listbyuser (request):
 class UserListView(LoginRequiredMixin,generic.ListView):
     model = Myhouses
     template_name ='houses/ListingByUser.html'
+    paginate_by = 9
     
     
     def get_queryset(self):

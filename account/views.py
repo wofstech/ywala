@@ -9,6 +9,9 @@ from django.contrib.auth.models import User
 from houses.models import Myhouses
 from django.db.models import Q
 from django.views import generic
+from account.forms import ContactForm
+from django.core.mail import send_mail, BadHeaderError
+from django.http import HttpResponse, HttpResponseRedirect
 
 def index(request):    
     return render(request, 'account/index.html')
@@ -54,7 +57,7 @@ def register(request):
             return render(request, 'account/register_done.html', {'new_user': new_user})
     else:        
          user_form = UserRegistrationForm()    
-         return render(request, 'account/register.html', {'user_form': user_form}) 
+    return render(request, 'account/register.html', {'user_form': user_form}) 
 
 @login_required 
 def edit(request):    
@@ -88,5 +91,21 @@ def search_detail(request, id):
 
     return render(request, 'houses/mysearch.html', context)
     
+def contact(request):
+    if request.method == 'GET':
+        form = ContactForm()
+    else:
+        form = ContactForm(request.POST)
+        if form.is_valid():
+            subject = form.cleaned_data['subject']
+            from_email = form.cleaned_data['Your_email']
+            message = form.cleaned_data['message']
+            try:
+                send_mail(subject, message, from_email, ['gabrielabuka@gmail.com'])
+            except BadHeaderError:
+                return HttpResponse('Invalid header found.')
+            return redirect('success')
+    return render(request, "account/contact.html", {'form': form})
 
-
+def success(request):
+    return render(request, 'account/success.html')

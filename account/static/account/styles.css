@@ -4,7 +4,7 @@ body {
   }
 
 .navbar{
-    margin-bottom: 0;
+    margin-bottom: 0px;
     border-radius: 0;
     background-color: #ffffff;
     color:#286DA8;
@@ -31,6 +31,11 @@ body {
     color: #328cc1;
 }
 
+.myforms1{
+    width: 40%;
+    margin: auto;
+}
+
 #showcase{
     background: 
       /* top, transparent red */
@@ -42,6 +47,16 @@ body {
       color: #ffffff;
     min-height: 600px;
     text-align: center;
+}
+
+.sr1{
+    width: 90%;
+    margin:auto;
+    
+}
+
+#srs{
+    background: #d3d3d3;
 }
 
 #showcase h2{
@@ -67,6 +82,19 @@ body {
     font-size: 20px;
 }
 
+.button_2{
+    background: #286DA8;
+    border:none;
+    margin-right: 0;
+    padding:10px 10px 10px 10px;
+    color:#ffffff;
+    font-size: 15px; 
+}
+
+.error{
+    color:#000000;
+}
+
 #learnmore{
     background: #286DA8;
     border:none;
@@ -79,6 +107,15 @@ body {
 
 .howworks{
     margin-top: 60px;
+}
+.login-form{
+    width:20%;
+    margin: auto;
+}
+
+#messageing-head{
+    background: #494e6b;
+    color:#fff;
 }
 
 .howworks h2{
@@ -139,10 +176,20 @@ ul.myuserdetails li{
 }
 
 
+#addhouse{
+    background: #d3d3d3;
+    margin-bottom:0;
+    margin: 0;
+    padding:0;
+}
 
+.addshow{
+    width:40%;
+    margin: auto;
+}
 
 .outeruser{
-    width: 30%;
+    width: 90%;
     margin: auto;
 }
 
@@ -154,8 +201,8 @@ ul.myuserdetails li{
     background: 
       /* top, transparent red */
       linear-gradient(
-        rgba(73,78,104, 0.90),
-        rgba(73,78,104, 0.90)
+        rgba(73,78,104, 0.60),
+        rgba(73,78,104, 0.60)
       ),
       url("/static/account/city.jpg");
       color: #ffffff;
@@ -166,8 +213,8 @@ ul.myuserdetails li{
     background: 
       /* top, transparent red */
       linear-gradient(
-        rgba(73,78,104, 0.90),
-        rgba(73,78,104, 0.90)
+        rgba(73,78,104, 0.50),
+        rgba(73,78,104, 0.50)
       ),
       url("/static/account/city.jpg");
       color: #ffffff;
@@ -195,6 +242,7 @@ ul.myuserdetails li{
 
 #dashshowcase{
     background: #d3d3d3;
+   
 }
 
 #userlisting1{
@@ -224,9 +272,6 @@ ul.searchlist li{
     padding: 30px;
 }
 
-.writeups{
-    float:left;
-}
 
 .pic{
     float:right;
@@ -238,4 +283,35 @@ footer{
     color: #fff; 
     margin-top: 0; 
     
+}
+
+
+
+@media (max-width:600px){
+    .login-form{
+        width:80%;
+        margin:auto;
+    }
+
+    .scontainer{
+        width: 80%;
+        margin:auto;
+    }
+
+    #dase{
+        margin-bottom: 0px;
+    }
+
+    .help{
+        width:100%;
+        margin:auto;
+        
+
+    }
+
+    .dashcontainer1{
+        margin-top: 20px;
+        padding: 50px;
+    
+    }
 }

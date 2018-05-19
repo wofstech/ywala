@@ -10,12 +10,15 @@
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>  
 {% load bootstrap3 %}
+{% load bootstrap %}
 <section id='sshowcase'>
+    <br>
     <div class='scontainer'>
         <h1>Create an account</h1>  
         <p>Please, sign up using the following form:</p>
-        <form action="." method="post">    
-            {% bootstrap_form user_form %}    
+        <form action="." method="post">
+            {{ user_form|bootstrap }}    
+             
             {% csrf_token %}    
             <p><input type="submit" value="Create my account" class='button_1' id='sub1'></p>  
         </form> 

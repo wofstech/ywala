@@ -9,7 +9,7 @@
 {{ form.media }}{# for ajax_selects (v1.3.6 at least) #}
 {% endblock %}
 {% block header %}
-<nav class='navbar navbar-inverse'>
+<nav class='navbar navbar-inverse' style='padding:0; padding-top:10px;'>
         <div class='container-fluid'>
                 <div class='navbar-header'>
                         <button type='button' class='navbar-toggle' data-toggle='collapse' data-target='#MyNavBar'>
@@ -22,14 +22,14 @@
                 <div 'collapse navbar-collapse'  id='MyNavBar'> 
                     <ul class='nav navbar-nav navbar-right' style="font-size: 20px;">
                         <li>
-                            <a href='#'>
+                            <a href='{% url "dashboard" %}'>
                                     {% if user.profile.image  %} 
                                     <img src='{{ user.profile.image.url }}'  width='50px' height="50px" style='border-radius:50%'>
                                     {% endif %}
                             </a>
                         </li>
                         <li>
-                            <a href='#' class='dash' style='font-size: 15px'>
+                            <a href='{% url "dashboard" %}' class='dash' style='font-size: 15px'>
                                     
                                 {% if request.user.is_authenticated %}      
                                 Hello {{ request.user.first_name }},
@@ -37,7 +37,7 @@
                             </a>
                         </li>
                         <li>
-                            <a href='#' class='dash' style='font-size: 15px'>
+                            <a href='{% url "addlisting" %}' class='dash' style='font-size: 15px'>
                                 <span class='glyphicon glyphicon-home' aria-hidden="true"></span>
                                 Make a Listing
                             </a>

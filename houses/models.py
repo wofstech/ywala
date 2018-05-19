@@ -1,6 +1,7 @@
 from django.db import models
 from django.contrib.auth.models import User
 from django.conf import settings
+from datetime import datetime
 
   
 
@@ -12,6 +13,7 @@ class Myhouses(models.Model):
         (Available, 'Available'),
         (Not_Available, 'Not_Available'),
     )
+    time = models.DateTimeField(default = datetime.now, blank = True)
     name_of_accomodation = models.CharField(max_length=200)
     type_of_room = models.CharField(max_length=200)
     house_rent = models.IntegerField(null=True)
@@ -19,7 +21,7 @@ class Myhouses(models.Model):
     location = models.CharField(max_length=200)
     nearest_institution = models.CharField(max_length=200)
     description = models.TextField(blank=True)
-    image = models.ImageField(upload_to='profile_image')
+    image = models.ImageField()
     author = models.ForeignKey(settings.AUTH_USER_MODEL, on_delete=models.SET_NULL, null=True, blank=True, related_name='author')
 
     def __str__(self):
@@ -30,3 +32,6 @@ class Myhouses(models.Model):
         Returns the url to access a particular author instance.
         """
         return reverse('search-detail', args=[str(self.id)])
+
+    class Meta:
+        ordering = ["-time"]

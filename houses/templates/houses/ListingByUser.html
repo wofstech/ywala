@@ -19,7 +19,7 @@
     </head> 
     <body>  
 
-        <nav class='navbar navbar-inverse'>
+        <nav class='navbar navbar-inverse' style='padding:0; padding-top:10px;'>
             <div class='container-fluid'>
                     <div class='navbar-header'>
                             <button type='button' class='navbar-toggle' data-toggle='collapse' data-target='#MyNavBar'>
@@ -32,14 +32,14 @@
                     <div 'collapse navbar-collapse'  id='MyNavBar'> 
                         <ul class='nav navbar-nav navbar-right' style="font-size: 20px;">
                             <li>
-                                <a href='#'>
+                                <a href='{% url "dashboard" %}'>
                                         {% if user.profile.image  %} 
                                         <img src='{{ user.profile.image.url }}'  width='50px' height="50px" style='border-radius:50%'>
                                         {% endif %}
                                 </a>
                             </li>
                             <li>
-                                <a href='#' class='dash' style='font-size: 15px'>
+                                <a href='{% url "dashboard" %}' class='dash' style='font-size: 15px'>
                                         
                                     {% if request.user.is_authenticated %}      
                                     Hello {{ request.user.first_name }},
@@ -47,7 +47,7 @@
                                 </a>
                             </li>
                             <li>
-                                <a href='#' class='dash' style='font-size: 15px'>
+                                <a href='{% url "addlisting" %}' class='dash' style='font-size: 15px'>
                                     <span class='glyphicon glyphicon-home' aria-hidden="true"></span>
                                     Make a Listing
                                 </a>
@@ -67,18 +67,29 @@
         <div class='outeruser'>
             <div class='userlisting'>
                 <ul class='divider'>
-                    <p style='text-align:center; font-size:30px; padding-top: 24px;'>My Listings</p>
+                    <p style='font-size:30px; padding-top: 24px;'>My Listings</p>
+                    {% if myhouses_list %}
+                    <div class='row'>
                     {% for house in myhouses_list  %}
-                    <div class='text-center' id='myinner'>
-                    <li><img src='{{house.image.url}}'width='150px' height="150px" style='border-radius:50%' ></li>
+                    <div class='col-sm-4'>
+                    <div id='myinner'>
+                    <li><img src='{{house.image.url}}' width='350px' height="150px"  ></li>
+                    <br>
                     <li><strong>Name of Accomodation:</strong> {{house.name_of_accomodation}}</li>
                     <li><strong>Type of room:</strong>{{house.type_of_room}}</li>
                     <li><strong>Location:</strong>{{house.location}}</li>
                     <li><strong>House Rent:</strong>{{house.house_rent}}</li>
-                    <a href="{% url 'detail' house.id %}"><button class='button_1' id='learnmore'>Learn more</button></a>
+                    <a href="{% url 'detail' house.id %}"><button class='button_1' id='learnmore'>View more</button></a>
+                    </div>
                 </div>
                     {% endfor %}
+                    {% else %}
+                    <div style='font-size: 16px;'>No listing to display</div><br>
+                    <br>
+                    </div>
+                   
                     </ul>
+                    {% endif %}
             </div>
             {% if is_paginated %}
             <div class="pagination">

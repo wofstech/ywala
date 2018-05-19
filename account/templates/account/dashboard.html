@@ -19,7 +19,7 @@
     </head> 
     <body>  
 
-        <nav class='navbar navbar-inverse'>
+        <nav class='navbar navbar-inverse' style='padding:0; padding-top:10px; margin:0;'>
             <div class='container-fluid'>
                     <div class='navbar-header'>
                             <button type='button' class='navbar-toggle' data-toggle='collapse' data-target='#MyNavBar'>
@@ -35,11 +35,13 @@
                                 <a href='#'>
                                         {% if user.profile.image  %} 
                                         <img src='{{ user.profile.image.url }}'  width='50px' height="50px" style='border-radius:50%'>
+                                        {% else %}
+                                        <img src='{% static "account/avatar2.jpg" %}' width='50px' height="50px" style='border-radius:50%'>
                                         {% endif %}
                                 </a>
                             </li>
                             <li>
-                                <a href='#' class='dash' style='font-size: 15px'>
+                                <a href='{% url "dashboard" %}' class='dash' style='font-size: 15px'>
                                         
                                     {% if request.user.is_authenticated %}      
                                     Hello {{ request.user.first_name }},
@@ -47,14 +49,14 @@
                                 </a>
                             </li>
                             <li>
-                                <a href='#' class='dash' style='font-size: 15px'>
+                                <a href='{% url "addlisting" %}' class='dash' style='font-size: 15px'>
                                     <span class='glyphicon glyphicon-home' aria-hidden="true"></span>
                                     Make a Listing
                                 </a>
                             </li>
 
                             <li>
-                                <a href='#' class='dash' style='font-size: 15px'>
+                                <a href='{% url "postman:inbox" %}' class='dash' style='font-size: 15px'>
                                     <span class='glyphicon glyphicon-envelope' aria-hidden="true"></span>
                                     Inbox
                                 </a>
@@ -64,38 +66,40 @@
             </div>
     </nav>
     <section id='dashshowcase'>
+        
         <div class='dashcontainer1' style="text-align:center" id='dmenu1'>
                 <div class='dmenu'>
                     <div class='row'>
-                            <div class='col-sm-4'>
+                            <div class='col-sm-4'  id='dase'>
                                 <span class='glyphicon glyphicon-inbox' aria-hidden="true" style="color: #286da8"></span>
                                 <h3>Inbox</h3>
                                 <p>Have a perfect overview of all your conversations! Favourite, archive, filter and use search to manage your dialogues</p>
-                                <button class='button_1' id='sub1'>Go to Inbox</button>
+                               <a href='{% url "postman:inbox" %}'><button class='button_1' id='sub1'>Go to Inbox</button></a>
                             </div>
             
-                            <div class='col-sm-4'>
+                            <div class='col-sm-4' id='dase'>
                                 <span class='glyphicon glyphicon-pencil' aria-hidden="true" style="color: #286da8"></span>
                                 <h3>Your Listing</h3>
                                 <p>Manage existing listing, create new ones, list and unlist them in one click! Instant access with flexible filtering and search!</p>
-                                <button class='button_1' id='sub1'>Manage Listing</button>
+                                <a href='{% url "userlist" %}'><button class='button_1' id='sub1'>Manage Listing</button></a>
                             </div>
             
-                            <div class='col-sm-4'>
+                            <div class='col-sm-4' id='dase'>
                                 <span class='glyphicon glyphicon-cog' aria-hidden="true" style="color: #286da8"></span>
                                 <h3>Your Profile</h3>
                                 <p>Make sure people know who you are so that they can trust you. Add your information and don’t forget to include a picture</p>
-                                <button class='button_1' id='sub1'>Edit Profile</button>
+                                <a href='{% url "edit" %}'><button class='button_1' id='sub1'>Edit Profile</button></a>
                             </div>
                         </div>
                         <hr style='border-color:#494e6b; border-width: 1px'>
                 </div>
                 <div class='help'>
-                    <h3>HELP US IMPROVE YWALA.COM!</h3>
-                    <p>We take your feedback seriously. More exciting features and improvements are on their way. You can help us by telling us your suggestions on what we should improve. Anything you want to share with us?</p>
-                    <button class='button_1' id='sub1'>Send us a Message</button>
-                 </div>
+                        <h3>HELP US IMPROVE YWALA.COM!</h3>
+                         <p>We take your feedback seriously. More exciting features and improvements are on their way. You can help us by telling us your suggestions on what we should improve. Anything you want to share with us?</p>
+                         <a href='{% url "contact" %}'> <button class='button_1' id='sub1'>Send us a Message</button></a>
+                      </div>
             </div>
+           
     </section>
     <footer class='container-fluid ' id='mfoot'>
             <div class='container'>

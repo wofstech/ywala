@@ -7,20 +7,14 @@
 <div class='container'>
    <h2>Ywala Housing Helps You Find a Room or Apartment in a Minute</h2><br>
    <form method='get' action='{% url "searchme" %}'>
-        <input type='text' name='q' placeholder="Enter Search Keyword" value='{{ request.get.q }}' id='intry'>
+        <input type='text' name='q' placeholder="Enter Search Keyword" value='{{ request.get.q }}' id='intry' style="color:#000000">
         <input type='submit' value='Search' class='button_1' id='sub1'>
     </form>
 </div>
 
 
 </section>
-<div>
-        joshih
-        {% for search in queryset_list %}
-            <h1>{{ search.name_of_accomodation }}</h1>
-            <h1>{{ search.location }}</h1>
-        {% endfor %}
-    </div>
+
 <div class='container' style="text-align:center" id='howworks1'>
     <div class='howworks'>
         <h2 >How it Works</h2>

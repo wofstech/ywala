@@ -20,6 +20,13 @@ class UserRegistrationForm(forms.ModelForm):
         if cd['password'] != cd['password2']:            
             raise forms.ValidationError('Passwords don\'t match.')        
             return cd['password2']
+
+    
+    def __init__(self, *args, **kwargs):
+        super(UserRegistrationForm, self).__init__(*args, **kwargs)
+
+        for fieldname in ['username', 'password', 'password2']:
+            self.fields[fieldname].help_text = None
  
 class UserEditForm(forms.ModelForm):    
     class Meta:        
@@ -40,3 +47,8 @@ class TrialForm(forms.ModelForm):
     class Meta:
         model = trial
         fields = ('name', 'likes')
+
+class ContactForm(forms.Form):
+    Your_email = forms.EmailField(required=True)
+    subject = forms.CharField(required=True)
+    message = forms.CharField(widget=forms.Textarea, required=True)

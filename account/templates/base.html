@@ -26,24 +26,24 @@
                                 <span class='icon-bar'></span>
                                 <span class='icon-bar'></span>
                             </button>
-                            <a  class='navbar-brand' style="font-family: 'Tangerine', serif; font-size: 48px; color:#000000;">Ywala Housing</a>
+                            <a  class='navbar-brand' style="font-family: 'Tangerine', serif; font-size: 48px; color:#000000;"><img src="{% static 'account/logo.jpg'  %}" width=150px height="50px"></a>
                     </div>
                     <div 'collapse navbar-collapse'  id='MyNavBar'> 
                         <ul class='nav navbar-nav navbar-right' style="font-size: 20px;">
                             <li >
-                                <a href='#'>
+                                <a href='{% url "register" %}'>
                                     <span class='glyphicon glyphicon-user' aria-hidden="true"></span>
                                     Register
                                 </a>
                             </li>
                             <li>
-                                <a href='#'>
+                                <a href='{% url "login" %}'>
                                     <span class='glyphicon glyphicon-log-in' aria-hidden="true"></span>
                                     Log-in
                                 </a>
                             </li>
                             <li>
-                                <a href='#'>
+                                <a href='{% url "login" %}'>
                                     <span class='glyphicon glyphicon-home' aria-hidden="true"></span>
                                     Rent an Apartment
                                 </a>
@@ -69,8 +69,6 @@
         {% block content %} 
         {% endblock %}  
     </div> 
-    <div>
-              
-    </div>
+    
 </body> 
 </html>

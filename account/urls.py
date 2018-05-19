@@ -19,6 +19,8 @@ urlpatterns = [
        url(r'^edit/$', views.edit, name='edit'),
        url(r'^result', views.search, name='searchme'),
        url(r'^searchresult/(?P<id>\d+)/$', views.search_detail, name='search-detail'),
+       url(r'^contact', views.contact, name='contact'),
+       url(r'^success', views.success, name='success'),
        
        
 

@@ -9,3 +9,4 @@ Pillow
 haystack
 boto3
 django-storages
+django-bootstrap-form

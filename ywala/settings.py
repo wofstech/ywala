@@ -37,6 +37,7 @@ INSTALLED_APPS = [
     'account',
     'houses',
     'bootstrap3',
+    'bootstrapform',
     'dj_pagination',
     'postman',
     'storages',
