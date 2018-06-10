@@ -65,6 +65,17 @@
                     </div>
             </div>
     </nav>
+    <section id='showcase'>
+        <div class='container'>
+           <h2>Ywala Housing Helps You Find a Room or Apartment in a Minute</h2><br>
+           <form method='get' action='{% url "searchme" %}'>
+                <input type='text' name='q' placeholder="Enter Search Keyword" value='{{ request.get.q }}' id='intry' style="color:#000000">
+                <input type='submit' value='Search' class='button_1' id='sub1'>
+            </form>
+        </div>
+        
+        
+        </section>
     <section id='dashshowcase'>
         
         <div class='dashcontainer1' style="text-align:center" id='dmenu1'>

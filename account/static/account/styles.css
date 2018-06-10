@@ -40,8 +40,8 @@ body {
     background: 
       /* top, transparent red */
       linear-gradient(
-        rgba(73,78,104, 0.90),
-        rgba(73,78,104, 0.90)
+        rgba(73,78,104, 0.40),
+        rgba(73,78,104, 0.40)
       ),
       url("/static/account/city.jpg");
       color: #ffffff;
@@ -257,7 +257,6 @@ ul.myuserdetails li{
 }
 
 .dashcontainer1{
-    margin-top: 20px;
     padding: 50px;
 }
 
@@ -310,7 +309,7 @@ footer{
     }
 
     .dashcontainer1{
-        margin-top: 20px;
+       
         padding: 50px;
     
     }

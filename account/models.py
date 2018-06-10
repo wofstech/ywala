@@ -1,10 +1,24 @@
 from django.db import models
 from django.conf import settings
 
-class Profile(models.Model):    
+class Profile(models.Model):  
+    Student = 'S'
+    Employed = 'E'
+    Not_employed = 'N'
+    Undergraduate = 'U'
+    Others = 'O'
+    User_type = (
+        (Student, 'Student'),
+        (Employed, 'Employed'),
+        (Not_employed, 'Not employed'),
+        (Undergraduate, 'Undergraduate'),
+        (Others, 'Others'),
+    )  
     user = models.OneToOneField(settings.AUTH_USER_MODEL, on_delete=models.PROTECT)    
     date_of_birth = models.DateField(blank=True, null=True)
-    nickname = models.CharField(max_length=200, default='gabby')
+    City_of_residence = models.CharField(max_length=200)
+    Type_of_user = models.CharField(max_length=40, choices=User_type, default=Student,)
+    if_student = 
     image = models.ImageField()
 
     def __str__(self):        

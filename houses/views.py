@@ -10,6 +10,7 @@ from . models import Myhouses
 from django.contrib.auth.models import User
 from django.core.paginator import Paginator, EmptyPage, PageNotAnInteger
 from django.contrib import messages
+from django.contrib.auth.models import User
 
 @login_required
 def addlisting(request):    
@@ -30,7 +31,8 @@ def addlisting(request):
 @login_required
 def listbyuser (request):
     house_list = Myhouses.objects.filter(author=request.user)
-    return render(request, 'houses/ListingByUser.html', {'house_list':house_list})
+    profile = Profile.objects.all()
+    return render(request, 'houses/ListingByUser.html', {'house_list':house_list,'profile': profile})
 
 class UserListView(LoginRequiredMixin,generic.ListView):
     model = Myhouses

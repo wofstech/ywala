@@ -79,6 +79,9 @@
                     <li><strong>Availablity:</strong>{{house_list1.availability}}</li>
                     <li><strong>Nearest Institution:</strong>{{house_list1.nearest_institution}}</li>
                     <li><strong>Description:</strong>{{house_list1.description}}</li>
+                    {% load paystack %}
+                    ...
+                    {% paystack_button amount=house_list1.house_rent email=user.email %}
                     </ul>
                 </div>
             </div>

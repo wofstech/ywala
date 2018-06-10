@@ -35,8 +35,11 @@ class UserEditForm(forms.ModelForm):
 
 class ProfileEditForm(forms.ModelForm):    
     class Meta:        
-        model = Profile        
-        fields = ('date_of_birth', 'image', 'nickname')
+        model = Profile 
+        labels = {
+            'City_of_residence': 'City of residence/Intended city of residence'
+        }       
+        fields = ('__all__')
 
 class HouseEditForm(forms.ModelForm):    
     class Meta:        
