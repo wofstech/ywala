@@ -59,7 +59,5 @@ class Myhouses(models.Model):
     class Meta:
         ordering = ["-time"]
 
-class Image(models.Model):
-    myhouses = models.ForeignKey(Myhouses, related_name='images', on_delete=models.PROTECT)
-    image = models.ImageField(upload_to='documents/')
+
     

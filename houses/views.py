@@ -1,12 +1,12 @@
 from django.http import HttpResponse 
 from django.shortcuts import render,redirect, get_object_or_404
 from django.contrib.auth import authenticate, login 
-from .forms import MyHouseEditForm, ImageForm
+from .forms import MyHouseEditForm
 from django.contrib.auth.decorators import login_required
 from django.contrib import messages
 from django.contrib.auth.mixins import LoginRequiredMixin
 from django.views import generic
-from . models import Myhouses, Image
+from . models import Myhouses
 from django.contrib.auth.models import User
 from django.core.paginator import Paginator, EmptyPage, PageNotAnInteger
 from django.contrib import messages
