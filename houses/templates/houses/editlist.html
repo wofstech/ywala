@@ -5,7 +5,6 @@
         <title>Ywala Housing</title>  
         {% load static %}
         {% load bootstrap3 %}
-        {% load pagination_tags %}
         
         
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
@@ -21,7 +20,7 @@
     </head> 
     <body>  
 
-        <nav class='navbar navbar-inverse'>
+        <nav class='navbar navbar-inverse' style='padding:0; padding-top:10px;'>
             <div class='container-fluid'>
                     <div class='navbar-header'>
                             <button type='button' class='navbar-toggle' data-toggle='collapse' data-target='#MyNavBar'>
@@ -68,42 +67,100 @@
             </div>
     </nav>
      
-    <section id='srs'>
+    <div id='addhouse'>
         <br>
-    <div class='sr1'>
-    <h2 style="font-family: 'Tangerine', serif; font-size: 58px; color:#000000; text-align:center">Search Results</h2>
-    {% autopaginate results 9 %}
-    <ul class='divider'>
-    <div class='row'>
         
-            {% for element in results %}
-            <div class='col-sm-4'>
-                <div id='myinner2'>
-                    <img src='{{element.house_image.url}}' class='responsive' >
-                    <br><br>
-                    <div class='userpost2'>
-                        <div class='rightguy'>
-                            <li>{{ element.name_of_accomodation }}</li>
-                           <li> <img src="{% static 'account/bed1.png' %}" width='17px' height='17px'>&nbsp{{element.Number_of_rooms}}</li>
+        <div class='addshow'>
+                 
+                        {% if messages %}
+                            <div class="alert alert-success">
+                                <p>    
+                                    {% for message in messages %}          
+                                        {{ message|safe }}          
+                                    {% endfor %}  
+                                </p>
+                            </div>                     
+                        {% endif %}       
+                    
+            <br>
+            <h2 style="font-family: 'Tangerine', serif; font-size: 58px; color:#000000; text-align:center;">Create New Listing</h2>
+            <form method="POST" class="post-form" enctype="multipart/form-data" >{% csrf_token %}
+                {% load bootstrap %}
+                {{ house_form.name_of_accomodation|bootstrap}}
+                {{ house_form.type_of_apartment|bootstrap}}
+                {{ house_form.Number_of_rooms|bootstrap}}
+                {{ house_form.house_rent|bootstrap}}
+                {{ house_form.availability|bootstrap}}
+                {{ house_form.location|bootstrap}}
+                {{ house_form.nearest_institution|bootstrap}}
+                {{ house_form.description|bootstrap}}
+                
+               <strong> <p>Upload six images below</p></strong>
+                    <div class='row'>
+                        <div class='col-sm-4'>
+                            <label class='btn btn-default ' >{{ house_form.house_image}}</label>
                         </div>
-                        <div class='leftguy'>
-                            <li><img src="{% static 'account/loc2.png' %}" width='20px' height='20px' > &nbsp{{element.location}}</li>
-                          <li><img src="{% static 'account/naira1.png' %}" width='20px' height='20px' >&nbsp{{element.house_rent}}</li>
+        
+                        <div class='col-sm-4'>
+                            <label class='btn btn-default'>{{ house_form.house_image2}}</label>
+                        </div>
+        
+                        <div class='col-sm-4'>
+                            <label class='btn btn-default'>{{ house_form.house_image3}}</label>
                         </div>
                     </div>
-                    <div class='centreguy'>
-                            <a href="{% url 'search-detail' element.id %}"> <button class='button_2'>Learn more</button></a><br>
+                    <div class='row'>
+                        <div class='col-sm-4'>
+                            <label class='btn btn-default ' >{{ house_form.house_image4}}</label>
                         </div>
-                   
-                    <br> 
+        
+                        <div class='col-sm-4'>
+                            <label class='btn btn-default'>{{ house_form.house_image5}}</label>
+                        </div>
+        
+                        <div class='col-sm-4'>
+                            <label class='btn btn-default'>{{ house_form.house_image6}}</label>
+                        </div>
+                    </div>
+                <p>Do you want to upload more images?
+                    <button class="btn btn-primary" type="button" data-toggle="collapse" data-target="#colMenu">Yes</button>
+                </p>
+                <div id='colMenu' class='collapse'>
+                    <div class='row'>
+                        <div class='col-sm-4'>
+                            <label class='btn btn-default ' >{{ house_form.house_image7}}</label>
+                        </div>
+        
+                        <div class='col-sm-4'>
+                            <label class='btn btn-default'>{{ house_form.house_image8}}</label>
+                        </div>
+        
+                        <div class='col-sm-4'>
+                            <label class='btn btn-default'>{{ house_form.house_image9}}</label>
+                        </div>
+                    </div>
+                    <div class='row'>
+                        <div class='col-sm-4'>
+                            <label class='btn btn-default ' >{{ house_form.house_image10}}</label>
+                        </div>
+        
+                        <div class='col-sm-4'>
+                            <label class='btn btn-default'>{{ house_form.house_image11}}</label>
+                        </div>
+        
+                        <div class='col-sm-4'>
+                            <label class='btn btn-default'>{{ house_form.house_image12}}</label>
+                        </div>
+                    </div>
                 </div>
-            </div>   
-            {% endfor %}
+               
+                <br>
+               
+                <input type="submit" value="Save changes" class='button_2' >
+            </form>
+            <br>
         </div>
-    </ul>
-        <div style='text-align:center; font-size:20px;'>{% paginate %}</div>
     </div>
-    </section>
     <footer class='container-fluid ' id='mfoot'>
             <div class='container'>
                 <div class='row'>
@@ -148,10 +205,3 @@
 
 
  
-
-
- 
-
-
-
-   

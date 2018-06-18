@@ -1,5 +1,6 @@
 body {
-    font-family: 'Ubuntu', serif;
+    font-family: Arial, Helvetica, sans-serif;
+    
    
   }
 
@@ -13,6 +14,9 @@ body {
     border:0;
 }
 
+.field{
+    font-size: 15px;
+}
 .navbar-brand{
     float: left;
     min-height: 55px;
@@ -82,11 +86,41 @@ body {
     font-size: 20px;
 }
 
+.btn-file {
+    position: relative;
+    overflow: hidden;
+}
+.btn-file input{
+    position: absolute;
+    top: 0;
+    right: 0;
+    min-width: 100%;
+    min-height: 100%;
+    font-size: 100px;
+    text-align: right;
+    filter: alpha(opacity=0);
+    opacity: 0;
+    outline: none;
+    background: white;
+    cursor: inherit;
+    display: block;
+}
+
 .button_2{
     background: #286DA8;
     border:none;
     margin-right: 0;
     padding:10px 10px 10px 10px;
+    color:#ffffff;
+    font-size: 15px; 
+}
+
+.button_4{
+    background: #286DA8;
+    border:none;
+    margin-right: 0;
+    margin-top: 10px;
+    padding:5px 5px 5px 5px;
     color:#ffffff;
     font-size: 15px; 
 }
@@ -113,10 +147,20 @@ body {
     margin: auto;
 }
 
-#messageing-head{
-    background: #494e6b;
+.msg-show{
+    background: #008000;
     color:#fff;
 }
+
+.messages{
+    list-style-type: none;
+}
+
+.carousel-caption{
+    top: 50%;
+    transform: translateY(-50%);
+}
+
 
 .howworks h2{
     margin-bottom: 40px;
@@ -165,14 +209,59 @@ ul.myuserdetails{
     margin: 0em;
     padding: 0;
     list-style-type: none;
+    font : 20px;
 }
 
 ul.myuserdetails li{
-    padding: 4px;
+    padding-bottom: 10px;
+}
+
+#userpost1{
+    width:60%;
+    
 }
 
 #myinner{
-    padding: 20px
+    padding: 20px;
+    border-style: dotted;
+    border-width: 2px;
+    border-color: #000000;
+    margin-bottom: 15px;
+
+}
+
+#myinner2{
+    padding: 20px;
+    border-style: dotted;
+    border-width: 2px;
+    border-color: #000000;
+    margin-bottom: 15px;
+
+}
+
+.responsive{
+    width:100%;
+    height: 150px;
+}
+
+.userpost{
+    clear: left;
+}
+
+.userpost2{
+    clear: both;
+}
+
+.rightguy{
+    float:left;
+}
+
+.leftguy{
+    float:right;
+}
+
+.centreguy{
+    clear: both;
 }
 
 
@@ -184,7 +273,7 @@ ul.myuserdetails li{
 }
 
 .addshow{
-    width:40%;
+    width:75%;
     margin: auto;
 }
 
@@ -249,6 +338,13 @@ ul.myuserdetails li{
     background: #d3d3d3;
 }
 
+.userlisting{
+    width:95%;
+    margin: auto;
+}
+
+
+
 
 
 .dcontainer{
@@ -265,6 +361,8 @@ ul.myuserdetails li{
     margin:auto;
     padding: 30px;
 }
+
+
 
 ul.searchlist li{
     display: inline;
@@ -313,4 +411,8 @@ footer{
         padding: 50px;
     
     }
+
+    
+
+    
 }

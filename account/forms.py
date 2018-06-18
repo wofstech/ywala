@@ -37,7 +37,8 @@ class ProfileEditForm(forms.ModelForm):
     class Meta:        
         model = Profile 
         labels = {
-            'City_of_residence': 'City of residence/Intended city of residence'
+            'City_of_residence': 'City of residence/Intended city of residence',
+            'if_student': 'if you are a student, what institution are you in?'
         }       
         fields = ('__all__')
 

@@ -66,24 +66,45 @@
             </div>
     </nav>
     <section id='userlisting1'>
+        
         <div class='outeruser'>
             <div class='userlisting'>
+                <br>
+                    {% if messages %}
+                    <div class="alert alert-success">
+                        <p>    
+                            {% for message in messages %}          
+                                {{ message|safe }}          
+                            {% endfor %}  
+                        </p>
+                    </div>                     
+                {% endif %}
                 <ul class='divider'>
                     <p style="font-family: 'Tangerine', serif; font-size: 58px; color:#000000; padding-top: 24px;">My Listings</p>
                     {% if myhouses_list %}
                     <div class='row'>
                     {% for house in myhouses_list  %}
-                    <div class='col-sm-4'>
-                    <div id='myinner'>
-                    <li><img src='{{house.image.url}}' width='350px' height="150px"  ></li>
-                    <br>
-                    <li><strong>Name of Accomodation:</strong> {{house.name_of_accomodation}}</li>
-                    <li><strong>Type of room:</strong>{{house.type_of_room}}</li>
-                    <li><strong>Location:</strong>{{house.location}}</li>
-                    <li><strong>House Rent:</strong>{{house.house_rent}}</li>
-                    <a href="{% url 'detail' house.id %}"><button class='button_1' id='learnmore'>View more</button></a>
+                    <div class='col-sm-4' >
+                        <div id='myinner'>
+                            
+                            <li><img src='{{house.house_image2.url}}'   class='responsive'></li>
+                            <br>
+                            <div class='userpost'>
+                                <div class='rightguy'>
+                                    <li> {{house.name_of_accomodation}}</li>
+                                    <li><img src="{% static 'account/bed1.png' %}" width='17px' height='17px'>&nbsp{{house.Number_of_rooms}}</li>
+                                </div>
+                                <div class='leftguy'>
+                                    <li><li><img src="{% static 'account/loc2.png' %}" width='20px' height='20px' > &nbsp{{house.location}}</li>
+                                    <li><img src="{% static 'account/naira1.png' %}" width='20px' height='20px' >&nbsp{{house.house_rent}}</li>
+                                </div>
+                                
+                            </div>
+                            <div class='centreguy'>
+                                <a href="{% url 'detail' house.id %}"><button class='button_4' >View more</button></a>
+                            </div>
+                        </div>
                     </div>
-                </div>
                     {% endfor %}
                     {% else %}
                     <div style='font-size: 16px;'>No listing to display</div><br>

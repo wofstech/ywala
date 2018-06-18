@@ -79,7 +79,7 @@ def edit(request):
 
 def search(request):
     query = request.GET.get('q')
-    results = Myhouses.objects.filter(Q(name_of_accomodation__icontains=query) | Q(type_of_room__icontains=query) | Q(location__icontains=query))
+    results = Myhouses.objects.filter(Q(name_of_accomodation__icontains=query) | Q(type_of_apartment__icontains=query) | Q(location__icontains=query))
 
     return render(request, 'account/searchme.html', {'results': results})
 

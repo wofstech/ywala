@@ -69,25 +69,96 @@
      
     <div id='addhouse'>
         <br>
+        
         <div class='addshow'>
-                <div id="messageing-head"> 
+                 
                         {% if messages %}
-                        <ul class="messages">    
-                            {% for message in messages %}      
-                            <li class="{{ message.tags }}">        
-                                {{ message|safe }}          
-                                <a href="#" class="close">?</a>      
-                            </li>    
-                            {% endfor %}  
-                        </ul>                     
+                            <div class="alert alert-success">
+                                <p>    
+                                    {% for message in messages %}          
+                                        {{ message|safe }}          
+                                    {% endfor %}  
+                                </p>
+                            </div>                     
                         {% endif %}       
-                    </div>
+                    
             <br>
             <h2 style="font-family: 'Tangerine', serif; font-size: 58px; color:#000000; text-align:center;">Create New Listing</h2>
             <form method="POST" class="post-form" enctype="multipart/form-data" >{% csrf_token %}
                 {% load bootstrap %}
-                {{ form|bootstrap}}    
-                <input type="submit" value="Save changes" class='button_2' >
+                {{ house_form.name_of_accomodation|bootstrap}}
+                {{ house_form.type_of_apartment|bootstrap}}
+                {{ house_form.Number_of_rooms|bootstrap}}
+                {{ house_form.house_rent|bootstrap}}
+                {{ house_form.availability|bootstrap}}
+                {{ house_form.location|bootstrap}}
+                {{ house_form.nearest_institution|bootstrap}}
+                {{ house_form.description|bootstrap}}
+                
+               <strong> <p>Upload six images below</p></strong>
+               <div >
+                    <div class='row'>
+                        <div class='col-sm-4'>
+                            <label style='font-size:10px;' class='btn btn-default ' >{{ house_form.house_image}}</label>
+                        </div>
+        
+                        <div class='col-sm-4' >
+                            <label style='font-size:10px;' class='btn btn-default'>{{ house_form.house_image2}}</label>
+                        </div>
+        
+                        <div class='col-sm-4'>
+                            <label style='font-size:10px;' class='btn btn-default'>{{ house_form.house_image3}}</label>
+                        </div>
+                    </div>
+                    <div class='row'>
+                        <div class='col-sm-4'>
+                            <label style='font-size:10px;' class='btn btn-default ' >{{ house_form.house_image4}}</label>
+                        </div>
+        
+                        <div class='col-sm-4'>
+                            <label style='font-size:10px;' class='btn btn-default'>{{ house_form.house_image5}}</label>
+                        </div>
+        
+                        <div class='col-sm-4'>
+                            <label style='font-size:10px;' class='btn btn-default'>{{ house_form.house_image6}}</label>
+                        </div>
+                    </div>
+                <p>Do you want to upload more images?
+                    <button class="btn btn-primary" type="button" data-toggle="collapse" data-target="#colMenu">Yes</button>
+                </p>
+                <div id='colMenu' class='collapse'>
+                    <div class='row'>
+                        <div class='col-sm-4'>
+                            <label style='font-size:10px;' class='btn btn-default ' >{{ house_form.house_image7}}</label>
+                        </div>
+        
+                        <div class='col-sm-4'>
+                            <label style='font-size:10px;' class='btn btn-default'>{{ house_form.house_image8}}</label>
+                        </div>
+        
+                        <div class='col-sm-4'>
+                            <label style='font-size:10px;' class='btn btn-default'>{{ house_form.house_image9}}</label>
+                        </div>
+                    </div>
+                    <div class='row'>
+                        <div class='col-sm-4'>
+                            <label style='font-size:10px;' class='btn btn-default ' >{{ house_form.house_image10}}</label>
+                        </div>
+        
+                        <div class='col-sm-4'>
+                            <label style='font-size:10px;' class='btn btn-default'>{{ house_form.house_image11}}</label>
+                        </div>
+        
+                        <div class='col-sm-4'>
+                            <label style='font-size:10px;' class='btn btn-default'>{{ house_form.house_image12}}</label>
+                        </div>
+                    </div>
+                    </div>
+                </div>
+               
+                <br>
+               
+               <input type="submit" value="Save changes" class='btn btn-success' >
             </form>
             <br>
         </div>

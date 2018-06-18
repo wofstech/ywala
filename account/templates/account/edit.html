@@ -70,18 +70,15 @@
     <div id='addhouse'>
         <br>
         <div class='addshow'>
-                <div id="messageing-head"> 
-                        {% if messages %}
-                        <ul class="messages">    
-                            {% for message in messages %}      
-                            <li class="{{ message.tags }}">        
-                                {{ message|safe }}          
-                                <a href="#" class="close">?</a>      
-                            </li>    
-                            {% endfor %}  
-                        </ul>                     
-                        {% endif %}       
-                    </div>
+                {% if messages %}
+                            <div class="alert alert-success">
+                                <p>    
+                                    {% for message in messages %}          
+                                        {{ message|safe }}          
+                                    {% endfor %}  
+                                </p>
+                            </div>                     
+                        {% endif %}
             <br>
             <h1 style="font-family: 'Tangerine', serif; font-size: 58px; color:#000000;">Edit your account</h1>  
              
@@ -90,7 +87,7 @@
                 {{ user_form|bootstrap}}
                 {{ profile_form|bootstrap}}    
                 {% csrf_token %}    
-                <p><input type="submit" value="Save changes" class='button_2'></p>  
+                <p><input type="submit" value="Save changes" class='btn btn-success'></p>  
             </form>
             <br>
         </div>

@@ -18,6 +18,7 @@ class Profile(models.Model):
     date_of_birth = models.DateField(blank=True, null=True)
     City_of_residence = models.CharField(max_length=200)
     Type_of_user = models.CharField(max_length=40, choices=User_type, default=Student,)
+    if_student = models.CharField(max_length=200, blank=True, null=True)
     image = models.ImageField()
 
     def __str__(self):        
